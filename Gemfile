@@ -13,6 +13,7 @@ group :test do
     gem 'pry', '~> 0', platform: :mri, require: false
     gem 'pry-byebug', '~> 3', platform: :mri, require: false
   end
+  gem 'rspec-pending_for', '~> 0.1', require: false
   gem 'simplecov', '~> 0', require: false
 end
 

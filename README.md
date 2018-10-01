@@ -1,6 +1,6 @@
 # Rspec::BlockIsExpected
 
-This gem does one very simple thing very well.  It allows you to use `block_is_expected` similarly to how you would use `is_expected`, if a block was wrapping the subject.  Supports the same versions of Ruby that RSpec does, 1.8.7 - current ruby-head, as well as the JRuby equivalents.
+This gem does one very simple thing very well.  It allows you to use `block_is_expected` similarly to how you would use `is_expected` if a block was wrapping the subject.  Supports the same versions of Ruby that RSpec does, 1.8.7 - current ruby-head, as well as the JRuby equivalents.
 
 ```ruby
 subject { Integer(nil) }
@@ -59,6 +59,8 @@ RSpec.describe 'TestyMcTest' do
   context 'errors raised' do
     subject { Integer(nil) }
     it('can be tested') do
+      # Where you used to have:
+      # expect { subject }.to raise_error(TypeError)
       block_is_expected.to raise_error(TypeError)
     end
   end
@@ -67,6 +69,8 @@ RSpec.describe 'TestyMcTest' do
     subject { mutex.lock }
     it('can change state') do
       expect(mutex.locked?).to eq(false)
+      # Where you used to have:
+      # expect { subject }.to_not raise_error
       block_is_expected.to_not raise_error
       expect(mutex.locked?).to eq(true)
     end
@@ -75,6 +79,8 @@ RSpec.describe 'TestyMcTest' do
     let(:mutex) { Mutex.new }
     subject { mutex.lock }
     it('can be tested') do
+      # Where you used to have:
+      # expect { subject }.to change { mutex.locked? }.from(false).to(true)
       block_is_expected.to change { mutex.locked? }.from(false).to(true)
     end
   end

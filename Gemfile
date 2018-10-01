@@ -9,12 +9,12 @@ group :test do
     gem 'rubocop-rspec', '~> 1.24.0'
   end
   if ruby_version >= Gem::Version.new('2.0')
-    gem 'byebug', '~> 10', platform: :mri, require: false
-    gem 'pry', '~> 0', platform: :mri, require: false
-    gem 'pry-byebug', '~> 3', platform: :mri, require: false
+    gem 'byebug', '~> 10', :platform => :mri, :require => false
+    gem 'pry', '~> 0', :platform => :mri, :require => false
+    gem 'pry-byebug', '~> 3', :platform => :mri, :require => false
   end
-  gem 'rspec-pending_for', '~> 0.1', require: false
-  gem 'simplecov', '~> 0', require: false
+  gem 'rspec-pending_for', '~> 0.1', :require => false
+  gem 'simplecov', '~> 0', :require => false
 end
 
 # Specify your gem's dependencies in rspec-block_is_expected.gemspec

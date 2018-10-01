@@ -7,7 +7,7 @@ RSpec.describe Rspec::BlockIsExpected do
     context 'errors raised' do
       subject { Integer(nil) }
       it('can be tested') do
-        pending_for(engine: "ruby", versions: "1.8.7", reason: 'Integer(nil) does not fail on 1.8.7')
+        pending_for(:engine => 'ruby', :versions => '1.8.7', :reason => 'Integer(nil) does not fail on 1.8.7')
         block_is_expected.to raise_error(TypeError)
       end
     end

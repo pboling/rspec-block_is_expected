@@ -1,3 +1,16 @@
+inherit_from:
+  - .rubocop_todo.yml
+  - lib/rspec/block_is_expected/rubocop.yml
+
+require:
+  - rubocop-lts
+  - rubocop-md
+  - rubocop-rake
+  - rubocop-rspec
+
+inherit_gem:
+  rubocop-lts: rubocop-lts.yml
+
 AllCops:
   DisplayCopNames: true # Display the name of the failing cops
   Exclude:
@@ -5,7 +18,7 @@ AllCops:
     - 'vendor/**/*'
 
 Metrics/BlockLength:
-  ExcludedMethods:
+  AllowedMethods:
     - context
     - describe
     - it
@@ -15,7 +28,7 @@ Metrics/BlockLength:
     - namespace
     - draw
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Style/HashSyntax:
@@ -32,4 +45,7 @@ Style/SymbolArray:
 
 # Enable when drop support for Ruby < 2
 Style/ExpandPathArguments:
+  Enabled: false
+
+RSpec/FactoryBot/CreateList:
   Enabled: false

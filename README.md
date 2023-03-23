@@ -29,7 +29,7 @@ If you only ever want to test subjects wrapped in blocks, and are comfortable wi
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-block_is_expected', group: :test
+gem 'rspec-block_is_expected', :group => :test
 ```
 
 And then execute:
@@ -56,7 +56,7 @@ but `to_not` doesn't work with multiple expectations.
 So negated matchers are required. A basic set of them are included with this gem, and can be loaded with:
 
 ```ruby
-require "rspec/block_is_expected/matchers/not"
+require 'rspec/block_is_expected/matchers/not'
 ```
 
 This gives you the following matchers:
@@ -74,7 +74,7 @@ You have a module like this:
 ```ruby
 module MyTasks
   module_function def my_rakelib
-    Rake.add_rakelib("bananas")
+    Rake.add_rakelib('bananas')
   end
 end
 ```
@@ -85,11 +85,11 @@ You have a spec like this:
 require 'rake'
 
 RSpec.describe(MyTasks) do
-  describe "my_rakelib" do
+  describe 'my_rakelib' do
     subject(:my_rakelib) { described_class.my_rakelib }
-    it "updates rakelib" do
+    it 'updates rakelib' do
       block_is_expected.to not_raise_error &
-        change { Rake.application.options.rakelib }.from(["rakelib"]).to(["rakelib", "bananas"])
+                           change { Rake.application.options.rakelib }.from(['rakelib']).to(%w[rakelib bananas])
     end
   end
 end
@@ -197,7 +197,7 @@ or in a `gemspec`
 
 ## Legal
 
-* MIT License - See [LICENSE][license] file in this project [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
+* MIT License - See [LICENSE][license] file in this project [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 * Copyright (c) 2018 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
 

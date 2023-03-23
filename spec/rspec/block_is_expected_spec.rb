@@ -6,26 +6,33 @@ RSpec.describe Rspec::BlockIsExpected do
   describe '#block_is_expected' do
     context 'errors raised' do
       subject { Integer(nil) }
+
       it('can be tested') do
-        puts "RubyVersion.to_s: #{RubyVersion.to_s}"
+        puts "RubyVersion.to_s: #{RubyVersion}"
         skip_for(:versions => '1.8.7', :reason => 'Integer(nil) does not fail on 1.8.7')
         block_is_expected.to raise_error(TypeError)
       end
     end
+
     context 'execution' do
-      let(:mutex) { Mutex.new }
       subject { mutex.lock }
+
+      let(:mutex) { Mutex.new }
+
       it('can change state') do
         expect(mutex.locked?).to eq(false)
-        block_is_expected.to_not raise_error
+        block_is_expected.not_to raise_error
         expect(mutex.locked?).to eq(true)
       end
     end
+
     context 'changed state' do
-      let(:mutex) { Mutex.new }
       subject { mutex.lock }
+
+      let(:mutex) { Mutex.new }
+
       it('can be tested') do
-        block_is_expected.to change { mutex.locked? }.from(false).to(true)
+        block_is_expected.to change(mutex, :locked?).from(false).to(true)
       end
     end
   end

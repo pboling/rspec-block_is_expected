@@ -4,7 +4,7 @@ RSpec.describe Rspec::BlockIsExpected do
   end
 
   describe '#block_is_expected' do
-    context 'errors raised' do
+    context 'when errors raised' do
       subject { Integer(nil) }
 
       it('can be tested') do
@@ -14,7 +14,7 @@ RSpec.describe Rspec::BlockIsExpected do
       end
     end
 
-    context 'execution' do
+    context 'with execution' do
       subject { mutex.lock }
 
       let(:mutex) { Mutex.new }
@@ -26,7 +26,7 @@ RSpec.describe Rspec::BlockIsExpected do
       end
     end
 
-    context 'changed state' do
+    context 'with changed state' do
       subject { mutex.lock }
 
       let(:mutex) { Mutex.new }

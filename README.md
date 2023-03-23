@@ -73,9 +73,10 @@ You have a module like this:
 
 ```ruby
 module MyTasks
-  module_function def my_rakelib
+  def my_rakelib
     Rake.add_rakelib('bananas')
   end
+  module_function :my_rakelib
 end
 ```
 
@@ -106,7 +107,7 @@ To fix it properly you need to register `block_is_expected` as an "expectation".
 
 ```yml
 inherit_gem:
-  rspec-block_is_expected: rspec/block_is_expected/rubocop.yml
+  rspec-block_is_expected: rubocop.yml
 ```
 
 ## Usage
@@ -199,7 +200,7 @@ or in a `gemspec`
 
 * MIT License - See [LICENSE][license] file in this project [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-* Copyright (c) 2018 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
+* Copyright (c) 2018, 2020, 2023 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
 
 [semver]: http://semver.org/
 [pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint

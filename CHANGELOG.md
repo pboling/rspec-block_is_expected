@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning v2](https://semver.org/spec/v2.
 ### Fixed
 ### Removed
 
+## [1.0.4] - 2023-03-23
+### Added
+- Required ruby version in gemspec >= 1.8.7
+### Changed
+- Moved rubocop config to root
+### Fixed
+- documentation of rubocop config
+- Copyright years
+
 ## [1.0.3] - 2023-03-23
 ### Added
 - negated matchers

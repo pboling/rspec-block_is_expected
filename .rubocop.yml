@@ -1,6 +1,5 @@
 inherit_from:
   - .rubocop_todo.yml
-  - lib/rspec/block_is_expected/rubocop.yml
 
 require:
   - rubocop-lts
@@ -10,12 +9,14 @@ require:
 
 inherit_gem:
   rubocop-lts: rubocop-lts.yml
+  rspec-block_is_expected: rubocop.yml
 
 AllCops:
   DisplayCopNames: true # Display the name of the failing cops
   Exclude:
     - 'gemfiles/vendor/**/*'
     - 'vendor/**/*'
+  TargetRubyVersion: 2.0
 
 Metrics/BlockLength:
   AllowedMethods:

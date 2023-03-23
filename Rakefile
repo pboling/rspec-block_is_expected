@@ -14,6 +14,7 @@ rescue LoadError
     warn 'rspec is disabled'
   end
 end
+desc 'Alias test to spec'
 task :test => :spec
 
 begin

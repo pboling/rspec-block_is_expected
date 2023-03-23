@@ -20,7 +20,7 @@ it('raises') { block_is_expected.to raise_error(TypeError) }
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected) |
 | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
 | documentation           |  [on RDoc.info][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo), [🌹](https://nationalprogressiveparty.org) |
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo)|
 
 If you only ever want to test subjects wrapped in blocks, and are comfortable with **losing** the standard `is_expected` behavior, see an alternative to this gem [here](https://github.com/christopheraue/ruby-rspec-is_expected_block/).
 
@@ -47,6 +47,66 @@ There is no configuration needed if you your test suite loads the bundle group (
 Otherwise, you may load it manually near the top of your `spec_helper.rb`, and it will self configure.
 ```ruby
 require 'rspec/block_is_expected'
+```
+
+### RSpec Matchers
+
+`block_is_expected` can be used to chain expectations related to the block,
+but `to_not` doesn't work with multiple expectations.
+So negated matchers are required. A basic set of them are included with this gem, and can be loaded with:
+
+```ruby
+require "rspec/block_is_expected/matchers/not"
+```
+
+This gives you the following matchers:
+```ruby
+RSpec::Matchers.define_negated_matcher :not_change, :change
+RSpec::Matchers.define_negated_matcher :not_include, :include
+RSpec::Matchers.define_negated_matcher :not_eq, :eq
+RSpec::Matchers.define_negated_matcher :not_raise_error, :raise_error
+```
+
+#### Example
+
+You have a module like this:
+
+```ruby
+module MyTasks
+  module_function def my_rakelib
+    Rake.add_rakelib("bananas")
+  end
+end
+```
+
+You have a spec like this:
+
+```ruby
+require 'rake'
+
+RSpec.describe(MyTasks) do
+  describe "my_rakelib" do
+    subject(:my_rakelib) { described_class.my_rakelib }
+    it "updates rakelib" do
+      block_is_expected.to not_raise_error &
+        change { Rake.application.options.rakelib }.from(["rakelib"]).to(["rakelib", "bananas"])
+    end
+  end
+end
+```
+
+### Integration with RuboCop
+
+You'll likely get the following linting error from `rubocop-rspec` if you use `block_is_expected.to ...`:
+```
+RSpec/NoExpectationExample: No expectation found in this example.
+```
+
+To fix it properly you need to register `block_is_expected` as an "expectation".  In your `.rubocop.yml`
+
+```yml
+inherit_gem:
+  rspec-block_is_expected: rspec/block_is_expected/rubocop.yml
 ```
 
 ## Usage

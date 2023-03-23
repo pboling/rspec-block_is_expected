@@ -1,0 +1,4 @@
+RSpec:
+  Language:
+    Expectations:
+      - block_is_expected

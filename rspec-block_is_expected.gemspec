@@ -9,6 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Peter Boling']
   spec.email         = ['peter.boling@gmail.com']
 
+  # See CONTRIBUTING.md
+  spec.cert_chain  = ["certs/pboling.pem"]
+  spec.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
+
   spec.summary       = 'Simplify testing of blocks in RSpec via block_is_expected'
   spec.description   = %[subject { Integer(nil) }; it('raises') { block_is_expected.to raise_error(TypeError) }]
   spec.homepage      = 'https://github.com/pboling/rspec-block_is_expected'

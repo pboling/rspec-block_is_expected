@@ -14,8 +14,14 @@ and this project adheres to [Semantic Versioning v2](https://semver.org/spec/v2.
 ### Added
 - Structured gemfiles
 - Rubocop with standard, gradual, & more
+- Releases are now signed
+- Releases now have checksums
 ### Changed
 - TravisCI => GitHub Actions
+- CODE_OF_CONDUCT.md upgraded to v2.0
+- Moved from master to main default branch
+### Fixed
+- README Badges (CI status)
 
 ## [1.0.4] - 2023-03-23
 ### Added

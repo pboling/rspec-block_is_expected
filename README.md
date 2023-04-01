@@ -7,20 +7,20 @@ subject { Integer(nil) }
 it("raises") { block_is_expected.to(raise_error(TypeError)) }
 ```
 
-| Project                 | AnonymousActiveRecord                                                                                                                                                                 |
-|------------------------ |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gem name                | [rspec-block_is_expected](https://rubygems.org/gems/rspec-block_is_expected)                                                                                                          |
-| license                 | [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)                                                                            |
-| download rank           | [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected)                                                   |
-| version                 | [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected)                                                             |
-| dependencies            | [![Depfu][depfu-img]][depfu]                                                                                                                                                          |
+| Project                | AnonymousActiveRecord                                                                                                                                                                 |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gem name               | [rspec-block_is_expected](https://rubygems.org/gems/rspec-block_is_expected)                                                                                                          |
+| license                | [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)                                                                            |
+| download rank          | [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected)                                                   |
+| version                | [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected)                                                             |
+| dependencies           | [![Depfu][depfu-img]][depfu]                                                                                                                                                          |
 | continuous integration | [![Current][🚎cwfi]][🚎cwf] [![Heads][🖐hwfi]][🖐hwf] [![Style][🧮swfi]][🧮swf]                                                                                                       |
-| test coverage           | [![Test Coverage][cc-covi]][cc-cov]                                                                                                                                                   |
-| maintainability         | [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability)      |
-| code triage             | [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected)                     |
-| homepage                | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                              |
-| documentation           | [on RDoc.info][documentation]                                                                                                                                                         |
-| Spread ~♡ⓛⓞⓥⓔ♡~      | [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay], [🧊][🧊berg], [🛖][🛖hut], [🧪][🧪lab], [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme])][twitter] |
+| test coverage          | [![Test Coverage][cc-covi]][cc-cov]                                                                                                                                                   |
+| maintainability        | [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability)      |
+| code triage            | [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected)                     |
+| homepage               | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                              |
+| documentation          | [on RDoc.info][documentation]                                                                                                                                                         |
+| Spread ~♡ⓛⓞⓥⓔ♡~        | [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay], [🧊][🧊berg], [🛖][🛖hut], [🧪][🧪lab], [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme])][twitter] |
 
 [🚎cwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml
 [🚎cwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml/badge.svg

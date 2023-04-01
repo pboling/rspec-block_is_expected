@@ -1,5 +1,5 @@
-require 'rspec/block_is_expected/version'
-require 'rspec/block_is_expected/rspec'
+require "rspec/block_is_expected/version"
+require "rspec/block_is_expected/rspec"
 
 module Rspec
   # Namespace of this library

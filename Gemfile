@@ -1,22 +1,28 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
+
+source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-group :test do
-  ruby_version = Gem::Version.new(RUBY_VERSION)
-  if ruby_version >= Gem::Version.new('2.7')
-    gem 'rubocop-lts', '~> 18.0'
-    gem 'rubocop-md'
-    gem 'rubocop-rake'
-    gem 'rubocop-rspec', '~> 1.42'
-  end
-  if ruby_version >= Gem::Version.new('2.0')
-    gem 'byebug', '~> 10', :platform => :mri, :require => false
-    gem 'pry', '~> 0', :platform => :mri, :require => false
-    gem 'pry-byebug', '~> 3', :platform => :mri, :require => false
-  end
-  gem 'simplecov', '~> 0', :require => false
+# Specify your gem's dependencies in rspec-stubbed_env.gemspec
+gemspec
+
+RUBY_VER = Gem::Version.new(RUBY_VERSION)
+IS_CI = !ENV["CI"].nil?
+LOCAL_SUPPORTED = !IS_CI && Gem::Version.new("2.7") <= RUBY_VER && RUBY_ENGINE == "ruby"
+
+if LOCAL_SUPPORTED
+  # Coverage
+  eval_gemfile "./gemfiles/contexts/coverage.gemfile"
+
+  # Linting
+  eval_gemfile "./gemfiles/contexts/style.gemfile"
+
+  # Testing
+  eval_gemfile "./gemfiles/contexts/testing.gemfile"
+
+  # Documentation
+  eval_gemfile "./gemfiles/contexts/docs.gemfile"
 end
 
-# Specify your gem's dependencies in rspec-block_is_expected.gemspec
-gemspec
+eval_gemfile "./gemfiles/contexts/core.gemfile"

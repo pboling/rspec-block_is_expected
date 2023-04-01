@@ -4,7 +4,7 @@ This gem does one very simple thing very well.  It allows you to use `block_is_e
 
 ```ruby
 subject { Integer(nil) }
-it('raises') { block_is_expected.to raise_error(TypeError) }
+it("raises") { block_is_expected.to(raise_error(TypeError)) }
 ```
 
 | Project                 |  AnonymousActiveRecord |
@@ -13,23 +13,23 @@ it('raises') { block_is_expected.to raise_error(TypeError) }
 | license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) |
 | download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected) |
 | version                 |  [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected) |
-| dependencies            |  [![Depfu](https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg)](https://depfu.com/github/pboling/rspec-block_is_expected?project_id=5614) |
+| dependencies            |  [![Depfu][depfu-img]][depfu] |
 | continuous integration  |  [![Build Status](https://travis-ci.org/pboling/rspec-block_is_expected.svg?branch=master)](https://travis-ci.org/pboling/rspec-block_is_expected) |
 | test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage)](https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage) |
 | maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability) |
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected) |
 | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
 | documentation           |  [on RDoc.info][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo)|
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme])][twitter]|
 
-If you only ever want to test subjects wrapped in blocks, and are comfortable with **losing** the standard `is_expected` behavior, see an alternative to this gem [here](https://github.com/christopheraue/ruby-rspec-is_expected_block/).
+If you only _ever_ want to test subjects wrapped in blocks, and are comfortable with **losing** the standard `is_expected` behavior, see an alternative to this gem [here](https://github.com/christopheraue/ruby-rspec-is_expected_block/).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-block_is_expected', :group => :test
+gem "rspec-block_is_expected", :group => :test
 ```
 
 And then execute:
@@ -46,7 +46,7 @@ There is no configuration needed if you your test suite loads the bundle group (
 
 Otherwise, you may load it manually near the top of your `spec_helper.rb`, and it will self configure.
 ```ruby
-require 'rspec/block_is_expected'
+require "rspec/block_is_expected"
 ```
 
 ### RSpec Matchers
@@ -56,15 +56,15 @@ but `to_not` doesn't work with multiple expectations.
 So negated matchers are required. A basic set of them are included with this gem, and can be loaded with:
 
 ```ruby
-require 'rspec/block_is_expected/matchers/not'
+require "rspec/block_is_expected/matchers/not"
 ```
 
 This gives you the following matchers:
 ```ruby
-RSpec::Matchers.define_negated_matcher :not_change, :change
-RSpec::Matchers.define_negated_matcher :not_include, :include
-RSpec::Matchers.define_negated_matcher :not_eq, :eq
-RSpec::Matchers.define_negated_matcher :not_raise_error, :raise_error
+RSpec::Matchers.define_negated_matcher(:not_change, :change)
+RSpec::Matchers.define_negated_matcher(:not_include, :include)
+RSpec::Matchers.define_negated_matcher(:not_eq, :eq)
+RSpec::Matchers.define_negated_matcher(:not_raise_error, :raise_error)
 ```
 
 #### Example
@@ -74,7 +74,7 @@ You have a module like this:
 ```ruby
 module MyTasks
   def my_rakelib
-    Rake.add_rakelib('bananas')
+    Rake.add_rakelib("bananas")
   end
   module_function :my_rakelib
 end
@@ -83,14 +83,14 @@ end
 You have a spec like this:
 
 ```ruby
-require 'rake'
+require "rake"
 
 RSpec.describe(MyTasks) do
-  describe 'my_rakelib' do
+  describe "my_rakelib" do
     subject(:my_rakelib) { described_class.my_rakelib }
-    it 'updates rakelib' do
-      block_is_expected.to not_raise_error &
-                           change { Rake.application.options.rakelib }.from(['rakelib']).to(%w[rakelib bananas])
+    it "updates rakelib" do
+      block_is_expected.to(not_raise_error &
+        change { Rake.application.options.rakelib }.from(["rakelib"]).to(%w[rakelib bananas]))
     end
   end
 end
@@ -115,36 +115,46 @@ inherit_gem:
 The spec suite for this gem has some examples of usage, lightly edited here.
 
 ```ruby
-RSpec.describe 'TestyMcTest' do
-  context 'errors raised' do
+RSpec.describe("TestyMcTest") do
+  context "errors raised" do
     subject { Integer(nil) }
-    it('can be tested') do
+    it("can be tested") do
       # Where you used to have:
       # expect { subject }.to raise_error(TypeError)
-      block_is_expected.to raise_error(TypeError)
+      block_is_expected.to(raise_error(TypeError))
     end
   end
-  context 'execution' do
+  context "execution" do
     let(:mutex) { Mutex.new }
     subject { mutex.lock }
-    it('can change state') do
-      expect(mutex.locked?).to eq(false)
+    it("can change state") do
+      expect(mutex.locked?).to(eq(false))
       # Where you used to have:
       # expect { subject }.to_not raise_error
-      block_is_expected.to_not raise_error
-      expect(mutex.locked?).to eq(true)
+      block_is_expected.to_not(raise_error)
+      expect(mutex.locked?).to(eq(true))
     end
   end
-  context 'changed state' do
+  context "changed state" do
     let(:mutex) { Mutex.new }
     subject { mutex.lock }
-    it('can be tested') do
+    it("can be tested") do
       # Where you used to have:
       # expect { subject }.to change { mutex.locked? }.from(false).to(true)
-      block_is_expected.to change { mutex.locked? }.from(false).to(true)
+      block_is_expected.to(change { mutex.locked? }.from(false).to(true))
     end
   end
 end
+```
+
+## Switcch to `main` branch
+
+We recently migrated from `master` to `main` as the default branch.  If this affected your local checkout:
+```shell
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
 ```
 
 ## Development
@@ -155,11 +165,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Authors
 
-[Peter H. Boling][peterboling] of [Rails Bling][railsbling] is the author.
+* [Peter H. Boling][peterboling] of [Rails Bling][railsbling] is the author.
 
-## Contributors
+## Contributing
 
-See the [Network View](https://github.com/pboling/rspec-block_is_expected/network) and the [CHANGELOG](https://github.com/pboling/rspec-block_is_expected/blob/master/CHANGELOG.md)
+See [CONTRIBUTING.md][contributing].
+[contributing]: https://gitlab.com/pboling/rspec-block_is_expected/-/blob/main/CONTRIBUTING.md
 
 ## Contributing
 
@@ -190,7 +201,7 @@ dependency on this gem using the [Pessimistic Version Constraint][pvc] with two 
 
 For example in a `Gemfile`:
 
-    gem 'rspec-block_is_expected', '~> 1.0', group: :test
+    gem 'rspec-block_is_expected', '~> 1.0', group: [:development, :test]
 
 or in a `gemspec`
 
@@ -198,21 +209,22 @@ or in a `gemspec`
 
 ## Legal
 
-* MIT License - See [LICENSE][license] file in this project [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
 * Copyright (c) 2018, 2020, 2023 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
 
-[semver]: http://semver.org/
-[pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
-[documentation]: http://rdoc.info/github/pboling/rspec-block_is_expected/frames
-[homepage]: https://github.com/pboling/rspec-block_is_expected
-[blogpage]: http://www.railsbling.com/tags/rspec-block_is_expected/
-[license]: LICENSE
-[railsbling]: http://www.railsbling.com
-[peterboling]: https://about.me/peter.boling
-[refugees]: https://www.crowdrise.com/helprefugeeswithhopefortomorrowliberia/fundraiser/peterboling
-[gplus]: https://plus.google.com/+PeterBoling/posts
-[topcoder]: https://www.topcoder.com/members/pboling/
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+[aboutme]: https://about.me/peter.boling
 [angellist]: https://angel.co/peter-boling
-[coderwall]: http://coderwall.com/pboling
+[blogpage]: http://www.railsbling.com/tags/rspec-block_is_expected/
+[depfu]: https://depfu.com/github/pboling/rspec-block_is_expected?project_id=5614
+[depfu-img]: https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg
+[devto]: https://dev.to/galtzo
+[documentation]: http://rdoc.info/github/pboling/rspec-block_is_expected/frames
+[followme]: https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow
+[homepage]: https://github.com/pboling/rspec-block_is_expected
+[license]: LICENSE.txt
+[peterboling]: https://about.me/peter.boling
+[pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
+[railsbling]: http://www.railsbling.com
+[semver]: http://semver.org/
 [twitter]: http://twitter.com/galtzo

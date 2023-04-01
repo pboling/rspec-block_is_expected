@@ -11,5 +11,10 @@
 # rspec failure tracking
 .rspec_status
 
-# gemfiles for CI
+# gemfile locks for CI
 /gemfiles/*.gemfile.lock
+
+.byebug_history
+
+# iCloud Drive
+.nosync

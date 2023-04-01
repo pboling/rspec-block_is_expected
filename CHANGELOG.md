@@ -10,9 +10,17 @@ and this project adheres to [Semantic Versioning v2](https://semver.org/spec/v2.
 ### Fixed
 ### Removed
 
+## [1.0.5] - 2023-04-01
+### Added
+- Structured gemfiles
+- Rubocop with standard, gradual, & more
+### Changed
+- TravisCI => GitHub Actions
+
 ## [1.0.4] - 2023-03-23
 ### Added
 - Required ruby version in gemspec >= 1.8.7
+  - not bumping major version, because this was already the de-facto minimum
 ### Changed
 - Moved rubocop config to root
 ### Fixed

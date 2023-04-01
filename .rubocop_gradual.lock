@@ -1,0 +1,8 @@
+{
+  "bin/bundle:875899265": [
+    [66, 5, 20, "ThreadSafety/InstanceVariableInClassMethod: Avoid instance variables in class methods.", 2485198147]
+  ],
+  "spec/rspec/block_is_expected_spec.rb:4188602943": [
+    [22, 7, 22, "RSpec/MultipleExpectations: Example has too many expectations [3/1].", 4030167716]
+  ]
+}

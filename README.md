@@ -7,20 +7,20 @@ subject { Integer(nil) }
 it("raises") { block_is_expected.to(raise_error(TypeError)) }
 ```
 
-| Project                 |  AnonymousActiveRecord |
-|------------------------ | ----------------------- |
-| gem name                |  [rspec-block_is_expected](https://rubygems.org/gems/rspec-block_is_expected) |
-| license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) |
-| download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected) |
-| version                 |  [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected) |
-| dependencies            |  [![Depfu][depfu-img]][depfu] |
-| continuous integration | [![Current][🚎cwfi]][🚎cwf] [![Heads][🖐hwfi]][🖐hwf] [![Style][🧮swfi]][🧮swf]                                                                                            |
-| test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage)](https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage) |
-| maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability) |
-| code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected) |
-| homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
-| documentation           |  [on RDoc.info][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme])][twitter]|
+| Project                 | AnonymousActiveRecord                                                                                                                                                                 |
+|------------------------ |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gem name                | [rspec-block_is_expected](https://rubygems.org/gems/rspec-block_is_expected)                                                                                                          |
+| license                 | [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)                                                                            |
+| download rank           | [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected)                                                   |
+| version                 | [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected)                                                             |
+| dependencies            | [![Depfu][depfu-img]][depfu]                                                                                                                                                          |
+| continuous integration | [![Current][🚎cwfi]][🚎cwf] [![Heads][🖐hwfi]][🖐hwf] [![Style][🧮swfi]][🧮swf]                                                                                                       |
+| test coverage           | [![Test Coverage][cc-covi]][cc-cov]                                                                                                                                                   |
+| maintainability         | [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability)      |
+| code triage             | [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected)                     |
+| homepage                | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                              |
+| documentation           | [on RDoc.info][documentation]                                                                                                                                                         |
+| Spread ~♡ⓛⓞⓥⓔ♡~      | [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay], [🧊][🧊berg], [🛖][🛖hut], [🧪][🧪lab], [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme])][twitter] |
 
 [🚎cwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml
 [🚎cwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml/badge.svg
@@ -223,6 +223,8 @@ or in a `gemspec`
 [aboutme]: https://about.me/peter.boling
 [angellist]: https://angel.co/peter-boling
 [blogpage]: http://www.railsbling.com/tags/rspec-block_is_expected/
+[cc-cov]: https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage
+[cc-covi]: https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage
 [depfu]: https://depfu.com/github/pboling/rspec-block_is_expected?project_id=5614
 [depfu-img]: https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg
 [devto]: https://dev.to/galtzo
@@ -235,3 +237,8 @@ or in a `gemspec`
 [railsbling]: http://www.railsbling.com
 [semver]: http://semver.org/
 [twitter]: http://twitter.com/galtzo
+[🧊berg]: https://codeberg.org/pboling
+[🛖hut]: https://sr.ht/~galtzo/
+[🧪lab]: https://gitlab.com/pboling
+[⛳liberapay]: https://liberapay.com/pboling/donate
+[⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay

@@ -3,5 +3,5 @@
 # Testing
 gem "rspec", "~> 3.8"
 # This is that gem! So I can't include it here where I normally would.
-# gem "rspec-block_is_expected", "~> 1.0"
+# gem "rspec-block_is_expected", "~> 1.0" # Ships a RuboCop rule
 gem "rspec-pending_for", "~> 0.1"

@@ -14,13 +14,20 @@ it("raises") { block_is_expected.to(raise_error(TypeError)) }
 | download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected) |
 | version                 |  [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected) |
 | dependencies            |  [![Depfu][depfu-img]][depfu] |
-| continuous integration  |  [![Build Status](https://travis-ci.org/pboling/rspec-block_is_expected.svg?branch=master)](https://travis-ci.org/pboling/rspec-block_is_expected) |
+| continuous integration | [![Current][🚎cwfi]][🚎cwf] [![Heads][🖐hwfi]][🖐hwf] [![Style][🧮swfi]][🧮swf]                                                                                            |
 | test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage)](https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage) |
 | maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability) |
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected) |
 | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
 | documentation           |  [on RDoc.info][documentation] |
 | Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme])][twitter]|
+
+[🚎cwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml
+[🚎cwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml/badge.svg
+[🖐hwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/heads.yml
+[🖐hwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/heads.yml/badge.svg
+[🧮swf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/style.yml
+[🧮swfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/style.yml/badge.svg
 
 If you only _ever_ want to test subjects wrapped in blocks, and are comfortable with **losing** the standard `is_expected` behavior, see an alternative to this gem [here](https://github.com/christopheraue/ruby-rspec-is_expected_block/).
 

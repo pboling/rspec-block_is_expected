@@ -181,14 +181,8 @@ See [CONTRIBUTING.md][contributing].
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-6. Create new Pull Request
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/pboling/anonymous_active_record. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+See [CONTRIBUTING.md][contributing].
+[contributing]: https://gitlab.com/pboling/rspec-stubbed_env/-/blob/main/CONTRIBUTING.md
 
 ## Code of Conduct
 
@@ -225,6 +219,7 @@ or in a `gemspec`
 [blogpage]: http://www.railsbling.com/tags/rspec-block_is_expected/
 [cc-cov]: https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage
 [cc-covi]: https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage
+[contributing]: CONTRIBUTING.md
 [depfu]: https://depfu.com/github/pboling/rspec-block_is_expected?project_id=5614
 [depfu-img]: https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg
 [devto]: https://dev.to/galtzo

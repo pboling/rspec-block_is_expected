@@ -37,7 +37,8 @@ Gem::Specification.new do |spec|
     "CONTRIBUTING.md",
     "LICENSE.txt",
     "README.md",
-    "rubocop.yml"
+    "rubocop.yml",
+    "SECURITY.md"
   ]
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }

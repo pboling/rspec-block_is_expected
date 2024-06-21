@@ -36,13 +36,13 @@ jobs:
         gemfile:
           - coverage
         ruby:
-          - "2.7"
+          - "3.3"
 
     runs-on: ubuntu-latest
     steps:
       - uses: amancevice/setup-code-climate@v0
         name: CodeClimate Install
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.3' && github.event_name != 'pull_request' && always()
         with:
           cc_test_reporter_id: ${{ secrets.CC_TEST_REPORTER_ID }}
 
@@ -59,7 +59,7 @@ jobs:
 
       - name: CodeClimate Pre-build Notification
         run: cc-test-reporter before-build
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.3' && github.event_name != 'pull_request' && always()
         continue-on-error: ${{ matrix.experimental != 'false' }}
 
       - name: Run RSpec tests
@@ -68,7 +68,7 @@ jobs:
 
       - name: CodeClimate Post-build Notification
         run: cc-test-reporter after-build
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.3' && github.event_name != 'pull_request' && always()
         continue-on-error: ${{ matrix.experimental != 'false' }}
 
       - name: Code Coverage Summary Report
@@ -87,7 +87,7 @@ jobs:
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: matrix.ruby == '2.7' && always()
+        if: matrix.ruby == '3.3' && always()
         with:
           recreate: true
           path: code-coverage-results.md
@@ -95,7 +95,7 @@ jobs:
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.3' && github.event_name != 'pull_request' && always()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: ${{ matrix.experimental != 'false' }}

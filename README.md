@@ -1,11 +1,43 @@
 # Rspec::BlockIsExpected
 
-This gem does one very simple thing very well.  It allows you to use `block_is_expected` similarly to how you would use `is_expected` if a block was wrapping the subject.  Supports the same versions of Ruby that RSpec does, 1.8.7 - current ruby-head, as well as the JRuby equivalents.
-
+This gem does ~~three~~, _five sir_, five things.
+Provides `block_is_expected` to set expectations on the result of running the `subject` as a block.
+Provides, via shared example groups, shortcut RSpec macros for setting an expectation on errors being raised (or not).
+Provides RSpec negated matchers that can be used with `block_is_expected`:
 ```ruby
-subject { Integer(nil) }
-it("raises") { block_is_expected.to(raise_error(TypeError)) }
+not_change
+not_raise_error
 ```
+And two others that are so generally useful I end up defining them on every project:
+```ruby
+not_include
+not_eq
+```
+
+## Just show me the money
+
+First, configure in your rspec helper, or similar:
+```ruby
+require "rspec/block_is_expected"
+```
+
+Then,
+
+1. Custom expectation on result of subject as block
+    ```ruby
+subject { Integer("1") }
+it("raises") { block_is_expected.to(not_raise_error) }
+    ```
+2. Subject will not raise an exception
+    ```ruby
+subject { Integer("1") }
+it_behaves_like "block_is_expected to not raise"
+    ```
+3. Subject will raise an exception
+    ```ruby
+subject { Integer(nil) }
+it_behaves_like "block_is_expected to raise error", TypeError
+    ```
 
 | Project                | RSpec::BlockIsExpected                                                                                                                                                               |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,6 +62,10 @@ it("raises") { block_is_expected.to(raise_error(TypeError)) }
 [🧮swfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/style.yml/badge.svg
 
 If you only _ever_ want to test subjects wrapped in blocks, and are comfortable with **losing** the standard `is_expected` behavior, see an alternative to this gem [here](https://github.com/christopheraue/ruby-rspec-is_expected_block/).
+
+## Ruby Compatibility
+Supports the same versions of Ruby that RSpec does, 1.8.7 - current ruby-head,
+as well as the JRuby equivalents.
 
 ## Installation
 

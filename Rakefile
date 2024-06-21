@@ -5,23 +5,54 @@ require "bundler/gem_tasks"
 begin
   require "rspec/core/rake_task"
   RSpec::Core::RakeTask.new(:spec)
+  desc("alias test task to spec")
+  task(:test => :spec)
 rescue LoadError
-  # puts "failed to load wwtd or rspec, probably because bundled --without-development"
   task(:spec) do
     warn("rspec is disabled")
   end
 end
-desc "Alias test to spec"
-task :test => :spec
 
 begin
-  require "rubocop/gradual/rake_task"
+  require "reek/rake/task"
+  Reek::Rake::Task.new do |t|
+    t.fail_on_error = true
+    t.verbose = false
+    t.source_files = "lib/**/*.rb"
+  end
+rescue LoadError
+  task(:reek) do
+    warn("reek is disabled")
+  end
+end
 
-  RuboCop::Gradual::RakeTask.new
+begin
+  require "yard-junk/rake"
+
+  YardJunk::Rake.define_task
+rescue LoadError
+  task("yard:junk") do
+    warn("yard:junk is disabled")
+  end
+end
+
+begin
+  require "yard"
+
+  YARD::Rake::YardocTask.new(:yard)
+rescue LoadError
+  task(:yard) do
+    warn("yard is disabled")
+  end
+end
+
+begin
+  require "rubocop/lts"
+  Rubocop::Lts.install_tasks
 rescue LoadError
   task(:rubocop_gradual) do
     warn("RuboCop (Gradual) is disabled")
   end
 end
 
-task :default => %i[spec rubocop_gradual]
+task :default => %i[spec rubocop_gradual reek yard yard:junk]

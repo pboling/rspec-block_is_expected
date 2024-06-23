@@ -1,4 +1,4 @@
-name: Rails 3 - 4.1 on EOL Ruby 2.3
+name: Bundler 2.4 on EOL Rubies 2.6 - 3.0
 
 on:
   push:
@@ -32,15 +32,15 @@ jobs:
         include:
           - ruby: "3.0"
             appraisal: "ruby-3.0"
-            bundler: "2.5.14"
+            bundler: "2.4.22"
             gemfile: vanilla
           - ruby: "2.7"
             appraisal: "ruby-2.7"
-            bundler: "2.5.14"
+            bundler: "2.4.22"
             gemfile: vanilla
           - ruby: "2.6"
             appraisal: "ruby-2.6"
-            bundler: "2.5.14"
+            bundler: "2.4.22"
             gemfile: vanilla
 
     runs-on: ubuntu-20.04

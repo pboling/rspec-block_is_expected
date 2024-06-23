@@ -220,6 +220,25 @@ See [CONTRIBUTING.md][contributing].
 See [CONTRIBUTING.md][contributing].
 [contributing]: https://gitlab.com/pboling/rspec-stubbed_env/-/blob/main/CONTRIBUTING.md
 
+### Running Specs
+
+The basic compatibility matrix:
+```sh
+appraisal install
+appraisal rake test
+```
+
+Sometimes also:
+```sh
+BUNDLE_GEMFILE=gemfiles/vanilla.gemfile appraisal update
+```
+
+NOTE: This results in bad paths to the gemspec.
+`gemspec path: "../../"` needs to be replaced with `gemspec :path => "../"` in each Appraisal gemfile.
+
+Except, is unlikely to be possible to install all of the supported Rubies & Railsies in a single container...
+See the various github action workflows for more inspiration on running certain oldies.
+
 ## Code of Conduct
 
 Everyone interacting in the AnonymousActiveRecord project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][conduct].

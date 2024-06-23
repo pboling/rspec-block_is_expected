@@ -33,10 +33,10 @@ jobs:
       fail-fast: false
       matrix:
         experimental: [false]
-        gemfile:
-          - coverage
-        ruby:
-          - "3.3"
+        include:
+          - ruby: "3.3"
+            bundler: "2.5.14"
+            gemfile: coverage
 
     runs-on: ubuntu-latest
     steps:

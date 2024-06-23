@@ -6,6 +6,7 @@ begin
   end
   require "rspec/block_is_expected/shared_examples/block_does_not_raise_examples"
   require "rspec/block_is_expected/shared_examples/block_raises_error_examples"
-rescue NameError
+rescue NameError => e
   # Rspec really should be loaded by now...
+  warn "[#{e.class}] RSpec isn't loaded correctly: #{e.message}"
 end

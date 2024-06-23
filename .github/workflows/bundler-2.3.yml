@@ -23,14 +23,10 @@ concurrency:
 
 jobs:
   test:
-    name: Specs - Ruby ${{ matrix.ruby }} & Rails ${{ matrix.rails }} ${{ matrix.name_extra || '' }}
+    name: Specs - Ruby ${{ matrix.ruby }} ${{ matrix.name_extra || '' }}
     if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
-      # rspec-rails uses RAILS_VERSION internally
-      RAILS_VERSION: "~> ${{ matrix.rails }}"
-      # Our spec suite (not runtime code) uses RAILS_MAJOR_MINOR internally
-      RAILS_MAJOR_MINOR: ${{ matrix.rails }}
     strategy:
       fail-fast: false
       matrix:
@@ -63,9 +59,9 @@ jobs:
       # This will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. vanilla)
       # We need to do this first to get appraisal installed.
       # NOTE: This does not use the root Gemfile at all.
-      - name: Bundle for Appraisal ${{ matrix.appraisal }} (Rails v${{ matrix.rails}})
+      - name: Bundle for Appraisal ${{ matrix.appraisal }}
         run: bundle _2.3.27_ install
-      - name: Install Appraisal ${{ matrix.appraisal }} (Rails v${{ matrix.rails}}) dependencies
+      - name: Install Appraisal ${{ matrix.appraisal }} dependencies
         run: bundle _2.3.27_ exec appraisal ${{ matrix.appraisal }} bundle _2.3.27_ install
-      - name: Run tests ${{ matrix.appraisal }} (Rails v${{ matrix.rails}})
+      - name: Run tests ${{ matrix.appraisal }}
         run: bundle _2.3.27_ exec appraisal ${{ matrix.appraisal }} bundle _2.3.27_ exec rake test

@@ -1,5 +1,5 @@
 # See https://bundler.io/compatibility
-name: Bundler 2.3 on EOL Rubies 1.8.7 - 2.2
+name: Bundler 2.3 on EOL Rubies 2.3 - 2.5
 
 on:
   push:

@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-appraise "ruby-1.9" do
-  gem "rake", "~> 12.0"
-end
 appraise "ruby-2.0" do
   gem "rake", "~> 12.0"
 end

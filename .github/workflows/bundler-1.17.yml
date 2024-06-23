@@ -43,10 +43,6 @@ jobs:
             appraisal: "ruby-2.0"
             bundler: '1.17.3'
             gemfile: vanilla
-          - ruby: "1.9.3"
-            appraisal: "ruby-1.9"
-            bundler: '1.17.3'
-            gemfile: vanilla
 
     runs-on: ubuntu-24.04
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}

@@ -44,7 +44,7 @@ jobs:
             bundler: "2.3.27"
             gemfile: vanilla
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     steps:
       - name: Checkout

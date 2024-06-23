@@ -1,6 +1,10 @@
 inherit_gem:
   rubocop-lts: config/rubygem_rspec.yml
 
+AllCops:
+  Exclude:
+    - bin/checksums
+
 RSpec/InstanceVariable:
   Enabled: false
 

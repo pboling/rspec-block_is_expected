@@ -8,6 +8,7 @@ updates:
     open-pull-requests-limit: 10
     ignore:
       - dependency-name: "rubocop-lts"
+      - dependency-name: "appraisal"
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:

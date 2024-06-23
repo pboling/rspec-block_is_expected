@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.description = %[subject { Integer(nil) }; it('raises') { block_is_expected.to raise_error(TypeError) }]
   spec.homepage = "https://github.com/pboling/rspec-block_is_expected"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 1.8.7"
+  spec.required_ruby_version = ">= 2.2"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
@@ -44,14 +44,9 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.4")
-
   # Development Dependencies
-  spec.add_development_dependency("appraisal", "~> 2.5")
-  spec.add_development_dependency("json", ">= 1.7.7")
-  spec.add_development_dependency("rake", ">= 0.8.7")
-  spec.add_development_dependency("rdoc", ">= 3")
-  spec.add_development_dependency("rspec", ">= 3")
-  spec.add_development_dependency("rspec-block_is_expected", "~> 1.0", ">= 1.0.5")
-  spec.add_development_dependency("rspec-pending_for", "~> 0.1", ">= 0.1.16")
+  spec.add_development_dependency("appraisal", "~> 2.2")                      # >= Ruby 0.0
+  spec.add_development_dependency("rake", ">= 10.5")                          # >= Ruby 1.8.7
+  spec.add_development_dependency("rspec", ">= 3")                            # >= Ruby 0.0
+  spec.add_development_dependency("rspec-pending_for", "~> 0.1", ">= 0.1.16") # >= Ruby 0.0
 end

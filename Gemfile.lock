@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     rspec-block_is_expected (1.0.5)
-      version_gem (~> 1.1, >= 1.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -13,6 +12,7 @@ GEM
       rake
       thor (>= 0.14.0)
     ast (2.4.2)
+    backports (3.25.0)
     bigdecimal (3.1.8)
     byebug (11.1.3)
     concurrent-ruby (1.3.3)
@@ -62,13 +62,9 @@ GEM
     parser (3.3.3.0)
       ast (~> 2.4.1)
       racc
-    psych (5.1.2)
-      stringio
     racc (1.8.0)
     rainbow (3.1.1)
     rake (13.2.1)
-    rdoc (6.7.0)
-      psych (>= 4.0.0)
     reek (6.3.0)
       dry-schema (~> 1.13.0)
       parser (~> 3.3.0)
@@ -186,13 +182,17 @@ GEM
       standard-custom (>= 1.0.2, < 2)
       standard-performance (>= 1.3.1, < 2)
       version_gem (>= 1.1.4, < 3)
-    stringio (3.1.1)
     strscan (3.1.0)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.3.1)
     unicode-display_width (2.5.0)
     version_gem (1.1.4)
+    yard (0.9.36)
+    yard-junk (0.0.9)
+      backports (>= 3.18)
+      rainbow
+      yard
     zeitwerk (2.6.16)
 
 PLATFORMS
@@ -200,12 +200,10 @@ PLATFORMS
   arm64-darwin-23
 
 DEPENDENCIES
-  appraisal (~> 2.5)
+  appraisal (~> 2.2)
   byebug (>= 11)
-  json (>= 1.7.7)
   kettle-soup-cover (~> 1.0, >= 1.0.2)
-  rake (>= 0.8.7)
-  rdoc (>= 3)
+  rake (>= 10.5)
   reek (~> 6.3)
   rspec (>= 3)
   rspec-block_is_expected!
@@ -213,6 +211,8 @@ DEPENDENCIES
   rubocop-lts (~> 0.1, >= 0.1.1)
   rubocop-packaging (~> 0.5, >= 0.5.2)
   rubocop-rspec (~> 2.10)
+  yard (~> 0.9, >= 0.9.34)
+  yard-junk (~> 0.0)
 
 BUNDLED WITH
    2.5.13

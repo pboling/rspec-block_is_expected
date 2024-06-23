@@ -5,7 +5,7 @@ source "https://rubygems.org"
 # Root Gemfile is only for local development only. It is not loaded on CI.
 # On CI we only need the gemspecs' dependencies (including development dependencies).
 # Exceptions, if any, will be found in gemfiles/*.gemfile
-gem "rubocop-lts", "~> 10.1", ">= 10.1.1" # Linting for Ruby >= 2.3
+gem "rubocop-lts", "~> 0.1", ">= 0.1.1" # Linting for Ruby >= 1.8.7
 gem "rubocop-packaging", "~> 0.5", ">= 0.5.2"
 gem "rubocop-rspec", "~> 2.10"
 

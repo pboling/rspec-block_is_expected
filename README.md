@@ -323,7 +323,7 @@ or in a `gemspec`
 
 ## Legal
 
-* Copyright © 2018, 2020, 2023 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
+* Copyright © 2018, 2020, 2023 - 2024 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 

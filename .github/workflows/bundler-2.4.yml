@@ -59,8 +59,8 @@ jobs:
       # We need to do this first to get appraisal installed.
       # NOTE: This does not use the root Gemfile at all.
       - name: Bundle for Appraisal ${{ matrix.appraisal }}
-        run: bundle _2.5.14_ install
+        run: bundle _2.4.22_ install
       - name: Install Appraisal ${{ matrix.appraisal }} dependencies
-        run: bundle _2.5.14_ exec appraisal ${{ matrix.appraisal }} bundle _2.5.14_ install
+        run: bundle _2.4.22_ exec appraisal ${{ matrix.appraisal }} bundle _2.4.22_ install
       - name: Run tests ${{ matrix.appraisal }}
-        run: bundle _2.5.14_ exec appraisal ${{ matrix.appraisal }} bundle _2.5.14_ exec rake test
+        run: bundle _2.4.22_ exec appraisal ${{ matrix.appraisal }} bundle _2.4.22_ exec rake test

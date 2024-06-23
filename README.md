@@ -38,10 +38,11 @@
 [🖇sponsor]: https://github.com/sponsors/pboling
 
 This gem does ~~five~~, _three sir_, five things.
+
 1. Provides `block_is_expected` to set expectations on the result of running the `subject` as a block.
 2. Provides, via shared example groups, shortcut RSpec macros for setting an expectation on errors being raised (or not).
     ```ruby
-it_behaves_like "block_is_expected to not raise"
+    it_behaves_like "block_is_expected to not raise"
     it_behaves_like "block_is_expected to raise error", RuntimeError
     ```
 3. Provides RSpec negated matchers that can be used with `block_is_expected`:
@@ -315,11 +316,15 @@ dependency on this gem using the [Pessimistic Version Constraint][pvc] with two 
 
 For example in a `Gemfile`:
 
-    gem 'rspec-block_is_expected', '~> 1.0', group: [:development, :test]
+```ruby
+gem "rspec-block_is_expected", "~> 1.0", :group => [:development, :test]
+```
 
 or in a `gemspec`
 
-    spec.add_development_dependency 'rspec-block_is_expected', '~> 1.0'
+```ruby
+spec.add_development_dependency("rspec-block_is_expected", "~> 1.0")
+```
 
 ## Legal
 

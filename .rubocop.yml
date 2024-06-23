@@ -9,3 +9,6 @@ RSpec/ExampleLength:
 
 Layout/IndentationConsistency:
   Enabled: false
+
+Layout/InitialIndentation:
+  Enabled: false

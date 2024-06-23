@@ -1,5 +1,42 @@
 # Rspec::BlockIsExpected
 
+<div id="badges">
+
+[![CI Build][🚎dl-cwfi]][🚎dl-cwf]
+[![Test Coverage][🔑cc-covi]][🔑cc-cov]
+[![Maintainability][🔑cc-mnti]][🔑cc-mnt]
+[![Depfu][🔑depfui]][🔑depfu]
+
+[🚎dl-cwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml
+[🚎dl-cwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml/badge.svg
+
+[comment]: <> ( 🔑 KEYED LINKS )
+
+[🔑cc-mnt]: https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability
+[🔑cc-mnti]: https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability
+[🔑cc-cov]: https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage
+[🔑cc-covi]: https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage
+[🔑depfu]: https://depfu.com/github/pboling/rspec-block_is_expected?project_id=5865
+[🔑depfui]: https://badges.depfu.com/badges/79867e590f063376f40b031a1447c215/count.svg
+
+-----
+
+[![Liberapay Patrons][⛳liberapay-img]][⛳liberapay]
+[![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor]
+<span class="badge-buymeacoffee">
+<a href="https://ko-fi.com/O5O86SNP4" target='_blank' title="Donate to my FLOSS or refugee efforts at ko-fi.com"><img src="https://img.shields.io/badge/buy%20me%20coffee-donate-yellow.svg" alt="Buy me coffee donation button" /></a>
+</span>
+<span class="badge-patreon">
+<a href="https://patreon.com/galtzo" title="Donate to my FLOSS or refugee efforts using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a>
+</span>
+
+</div>
+
+[⛳liberapay-img]: https://img.shields.io/liberapay/patrons/pboling.svg?logo=liberapay
+[⛳liberapay]: https://liberapay.com/pboling/donate
+[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
+[🖇sponsor]: https://github.com/sponsors/pboling
+
 This gem does ~~five~~, _three sir_, five things.
 1. Provides `block_is_expected` to set expectations on the result of running the `subject` as a block.
 2. Provides, via shared example groups, shortcut RSpec macros for setting an expectation on errors being raised (or not).
@@ -43,23 +80,40 @@ Then,
     it_behaves_like "block_is_expected to raise error", TypeError
     ```
 
-| Project                | RSpec::BlockIsExpected                                                                                                                                                               |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gem name               | [rspec-block_is_expected](https://rubygems.org/gems/rspec-block_is_expected)                                                                                                         |
-| license                | [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)                                                                           |
-| download rank          | [![Downloads Today](https://img.shields.io/gem/rd/rspec-block_is_expected.svg)](https://github.com/pboling/rspec-block_is_expected)                                                  |
-| version                | [![Version](https://img.shields.io/gem/v/rspec-block_is_expected.svg)](https://rubygems.org/gems/rspec-block_is_expected)                                                            |
-| dependencies           | [![Depfu][depfu-img]][depfu]                                                                                                                                                         |
-| continuous integration | [![Current][🚎cwfi]][🚎cwf] [![Heads][🖐hwfi]][🖐hwf] [![Style][🧮swfi]][🧮swf]                                                                                                      |
-| test coverage          | [![Test Coverage][cc-covi]][cc-cov]                                                                                                                                                  |
-| maintainability        | [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability)     |
-| code triage            | [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected)                    |
-| homepage               | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                             |
-| documentation          | [on RDoc.info][documentation]                                                                                                                                                        |
-| Spread ~♡ⓛⓞⓥⓔ♡~        | [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay], [🧊][🧊berg], [🛖][🛖hut], [🧪][🧪lab], [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme]][twitter] |
+| Project                        | `bundle add rspec-block_is_expected --group test`                                                                                                                                                                                            |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name, license, docs, standards | [![RubyGems.org][⛳️name-img]][⛳️gem] [![License: MIT][🖇src-license-img]][🖇src-license] [![RubyDoc.info][🚎yard-img]][🚎yard] [![SemVer 2.0.0][🧮semver-img]][🧮semver] [![Keep-A-Changelog 1.0.0][📗keep-changelog-img]][📗keep-changelog] |
+| version & activity             | [![Gem Version][⛳️version-img]][⛳️gem] [![Total Downloads][🖇DL-total-img]][⛳️gem] [![Download Rank][🏘DL-rank-img]][⛳️gem]                                                                                                                  |
+| dependencies                   | [![Depfu][🔑depfui]][🔑depfu]                                                                                                                                                                                                                |
+| continuous integration         | [![CI Build][🚎dl-cwfi]][🚎dl-cwf] [![Heads][🖐hwfi]][🖐hwf] [![Style][🧮swfi]][🧮swf]                                                                                                                                                       |
+| test coverage                  | [![Test Coverage][🔑cc-covi]][🔑cc-cov]                                                                                                                                                                                                      |
+| maintainability                | [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability)                                                             |
+| code triage                    | [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected)                                                                            |
+| homepage                       | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                                                                                     |
+| documentation                  | [on RDoc.info][documentation]                                                                                                                                                                                                                |
+| `...` 💖                       | [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay], [🧊][🧊berg], [🛖][🛖hut], [🧪][🧪lab], [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme]][twitter]                                                         |
 
-[🚎cwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml
-[🚎cwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/current.yml/badge.svg
+<!--
+The link tokens in the following sections should be kept ordered by the row and badge numbering scheme
+-->
+
+<!-- 1️⃣ name, license, docs -->
+[⛳️gem]: https://rubygems.org/gems/rspec-block_is_expected
+[⛳️name-img]: https://img.shields.io/badge/name-rspec--block__is__expected-brightgreen.svg?style=flat
+[🖇src-license]: https://opensource.org/licenses/MIT
+[🖇src-license-img]: https://img.shields.io/badge/License-MIT-green.svg
+[🚎yard]: https://www.rubydoc.info/gems/rspec-block_is_expected
+[🚎yard-img]: https://img.shields.io/badge/documentation-rubydoc-brightgreen.svg?style=flat
+[🧮semver]: http://semver.org/
+[🧮semver-img]: https://img.shields.io/badge/semver-2.0.0-FFDD67.svg?style=flat
+[📗keep-changelog]: https://keepachangelog.com/en/1.0.0/
+[📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
+
+<!-- 2️⃣ version & activity -->
+[⛳️version-img]: http://img.shields.io/gem/v/rspec-block_is_expected.svg
+[🖇DL-total-img]: https://img.shields.io/gem/dt/rspec-block_is_expected.svg
+[🏘DL-rank-img]: https://img.shields.io/gem/rt/rspec-block_is_expected.svg
+
 [🖐hwf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/heads.yml
 [🖐hwfi]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/heads.yml/badge.svg
 [🧮swf]: https://github.com/pboling/rspec-block_is_expected/actions/workflows/style.yml
@@ -276,12 +330,8 @@ or in a `gemspec`
 [aboutme]: https://about.me/peter.boling
 [angellist]: https://angel.co/peter-boling
 [blogpage]: http://www.railsbling.com/tags/rspec-block_is_expected/
-[cc-cov]: https://codeclimate.com/github/pboling/rspec-block_is_expected/test_coverage
-[cc-covi]: https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage
 [conduct]: CODE_OF_CONDUCT.md
 [contributing]: CONTRIBUTING.md
-[depfu]: https://depfu.com/github/pboling/rspec-block_is_expected?project_id=5614
-[depfu-img]: https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg
 [devto]: https://dev.to/galtzo
 [documentation]: http://rdoc.info/github/pboling/rspec-block_is_expected/frames
 [followme]: https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow

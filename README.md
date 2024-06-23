@@ -23,6 +23,7 @@
 
 [![Liberapay Patrons][⛳liberapay-img]][⛳liberapay]
 [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor]
+
 <span class="badge-buymeacoffee">
 <a href="https://ko-fi.com/O5O86SNP4" target='_blank' title="Donate to my FLOSS or refugee efforts at ko-fi.com"><img src="https://img.shields.io/badge/buy%20me%20coffee-donate-yellow.svg" alt="Buy me coffee donation button" /></a>
 </span>
@@ -249,7 +250,7 @@ The spec suite for this gem has some examples of usage, lightly edited here.
     end
 ```
 
-## Switcch to `main` branch
+## Switch to `main` branch
 
 We recently migrated from `master` to `main` as the default branch.  If this affected your local checkout:
 ```shell

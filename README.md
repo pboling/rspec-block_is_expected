@@ -1,18 +1,22 @@
 # Rspec::BlockIsExpected
 
-This gem does ~~three~~, _five sir_, five things.
-Provides `block_is_expected` to set expectations on the result of running the `subject` as a block.
-Provides, via shared example groups, shortcut RSpec macros for setting an expectation on errors being raised (or not).
-Provides RSpec negated matchers that can be used with `block_is_expected`:
-```ruby
-not_change
-not_raise_error
-```
-And two others that are so generally useful I end up defining them on every project:
-```ruby
-not_include
-not_eq
-```
+This gem does ~~five~~, _three sir_, five things.
+1. Provides `block_is_expected` to set expectations on the result of running the `subject` as a block.
+2. Provides, via shared example groups, shortcut RSpec macros for setting an expectation on errors being raised (or not).
+    ```ruby
+it_behaves_like "block_is_expected to not raise"
+    it_behaves_like "block_is_expected to raise error", RuntimeError
+    ```
+3. Provides RSpec negated matchers that can be used with `block_is_expected`:
+    ```ruby
+    not_change
+    not_raise_error
+    ```
+    And two others that are so generally useful I end up defining them on every project:
+    ```ruby
+    not_include
+    not_eq
+    ```
 
 ## Just show me the money
 
@@ -25,18 +29,18 @@ Then,
 
 1. Custom expectation on result of subject as block
     ```ruby
-subject { Integer("1") }
-it("raises") { block_is_expected.to(not_raise_error) }
+    subject { Integer("1") }
+    it("raises") { block_is_expected.to(not_raise_error) }
     ```
 2. Subject will not raise an exception
     ```ruby
-subject { Integer("1") }
-it_behaves_like "block_is_expected to not raise"
+    subject { Integer("1") }
+    it_behaves_like "block_is_expected to not raise"
     ```
 3. Subject will raise an exception
     ```ruby
-subject { Integer(nil) }
-it_behaves_like "block_is_expected to raise error", TypeError
+    subject { Integer(nil) }
+    it_behaves_like "block_is_expected to raise error", TypeError
     ```
 
 | Project                | RSpec::BlockIsExpected                                                                                                                                                               |
@@ -72,7 +76,7 @@ as well as the JRuby equivalents.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "rspec-block_is_expected", :group => :test
+    gem "rspec-block_is_expected", :group => :test
 ```
 
 And then execute:
@@ -89,7 +93,7 @@ There is no configuration needed if you your test suite loads the bundle group (
 
 Otherwise, you may load it manually near the top of your `spec_helper.rb`, and it will self configure.
 ```ruby
-require "rspec/block_is_expected"
+    require "rspec/block_is_expected"
 ```
 
 ### RSpec Matchers
@@ -99,15 +103,15 @@ but `to_not` doesn't work with multiple expectations.
 So negated matchers are required. A basic set of them are included with this gem, and can be loaded with:
 
 ```ruby
-require "rspec/block_is_expected/matchers/not"
+    require "rspec/block_is_expected/matchers/not"
 ```
 
 This gives you the following matchers:
 ```ruby
-RSpec::Matchers.define_negated_matcher(:not_change, :change)
-RSpec::Matchers.define_negated_matcher(:not_include, :include)
-RSpec::Matchers.define_negated_matcher(:not_eq, :eq)
-RSpec::Matchers.define_negated_matcher(:not_raise_error, :raise_error)
+    RSpec::Matchers.define_negated_matcher(:not_change, :change)
+    RSpec::Matchers.define_negated_matcher(:not_include, :include)
+    RSpec::Matchers.define_negated_matcher(:not_eq, :eq)
+    RSpec::Matchers.define_negated_matcher(:not_raise_error, :raise_error)
 ```
 
 #### Example
@@ -115,28 +119,28 @@ RSpec::Matchers.define_negated_matcher(:not_raise_error, :raise_error)
 You have a module like this:
 
 ```ruby
-module MyTasks
-  def my_rakelib
-    Rake.add_rakelib("bananas")
-  end
-  module_function :my_rakelib
-end
+    module MyTasks
+      def my_rakelib
+        Rake.add_rakelib("bananas")
+      end
+      module_function :my_rakelib
+    end
 ```
 
 You have a spec like this:
 
 ```ruby
-require "rake"
+    require "rake"
 
-RSpec.describe(MyTasks) do
-  describe "my_rakelib" do
-    subject(:my_rakelib) { described_class.my_rakelib }
-    it "updates rakelib" do
-      block_is_expected.to(not_raise_error &
-        change { Rake.application.options.rakelib }.from(["rakelib"]).to(%w[rakelib bananas]))
+    RSpec.describe(MyTasks) do
+      describe "my_rakelib" do
+        subject(:my_rakelib) { described_class.my_rakelib }
+        it "updates rakelib" do
+          block_is_expected.to(not_raise_error &
+            change { Rake.application.options.rakelib }.from(["rakelib"]).to(%w[rakelib bananas]))
+        end
+      end
     end
-  end
-end
 ```
 
 ### Integration with RuboCop
@@ -158,36 +162,36 @@ inherit_gem:
 The spec suite for this gem has some examples of usage, lightly edited here.
 
 ```ruby
-RSpec.describe("TestyMcTest") do
-  context "errors raised" do
-    subject { Integer(nil) }
-    it("can be tested") do
-      # Where you used to have:
-      # expect { subject }.to raise_error(TypeError)
-      block_is_expected.to(raise_error(TypeError))
+    RSpec.describe("TestyMcTest") do
+      context "errors raised" do
+        subject { Integer(nil) }
+        it("can be tested") do
+          # Where you used to have:
+          # expect { subject }.to raise_error(TypeError)
+          block_is_expected.to(raise_error(TypeError))
+        end
+      end
+      context "execution" do
+        let(:mutex) { Mutex.new }
+        subject { mutex.lock }
+        it("can change state") do
+          expect(mutex.locked?).to(eq(false))
+          # Where you used to have:
+          # expect { subject }.to_not raise_error
+          block_is_expected.to_not(raise_error)
+          expect(mutex.locked?).to(eq(true))
+        end
+      end
+      context "changed state" do
+        let(:mutex) { Mutex.new }
+        subject { mutex.lock }
+        it("can be tested") do
+          # Where you used to have:
+          # expect { subject }.to change { mutex.locked? }.from(false).to(true)
+          block_is_expected.to(change { mutex.locked? }.from(false).to(true))
+        end
+      end
     end
-  end
-  context "execution" do
-    let(:mutex) { Mutex.new }
-    subject { mutex.lock }
-    it("can change state") do
-      expect(mutex.locked?).to(eq(false))
-      # Where you used to have:
-      # expect { subject }.to_not raise_error
-      block_is_expected.to_not(raise_error)
-      expect(mutex.locked?).to(eq(true))
-    end
-  end
-  context "changed state" do
-    let(:mutex) { Mutex.new }
-    subject { mutex.lock }
-    it("can be tested") do
-      # Where you used to have:
-      # expect { subject }.to change { mutex.locked? }.from(false).to(true)
-      block_is_expected.to(change { mutex.locked? }.from(false).to(true))
-    end
-  end
-end
 ```
 
 ## Switcch to `main` branch

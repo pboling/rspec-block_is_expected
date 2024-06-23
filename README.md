@@ -92,7 +92,6 @@ Then,
 | maintainability                | [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/rspec-block_is_expected/maintainability)                                                             |
 | code triage                    | [![Open Source Helpers](https://www.codetriage.com/pboling/rspec-block_is_expected/badges/users.svg)](https://www.codetriage.com/pboling/rspec-block_is_expected)                                                                            |
 | homepage                       | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                                                                                     |
-| documentation                  | [on RDoc.info][documentation]                                                                                                                                                                                                                |
 | `...` 💖                       | [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay], [🧊][🧊berg], [🛖][🛖hut], [🧪][🧪lab], [🌏][aboutme], [👼][angellist], [⚗️][devto], [![Tweet @galtzo][followme]][twitter]                                                         |
 
 <!--
@@ -339,7 +338,6 @@ spec.add_development_dependency("rspec-block_is_expected", "~> 1.0")
 [conduct]: CODE_OF_CONDUCT.md
 [contributing]: CONTRIBUTING.md
 [devto]: https://dev.to/galtzo
-[documentation]: http://rdoc.info/github/pboling/rspec-block_is_expected/frames
 [followme]: https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow
 [homepage]: https://github.com/pboling/rspec-block_is_expected
 [license]: LICENSE.txt

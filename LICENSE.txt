@@ -1,4 +1,4 @@
-Copyright © 2018, 2020, 2023 Peter H. Boling of RailsBling.com
+Copyright © 2018, 2020, 2023 - 2024 Peter H. Boling of RailsBling.com
 
 MIT License
 

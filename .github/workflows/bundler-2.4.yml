@@ -1,0 +1,66 @@
+name: Bundler 2.4 on EOL Rubies 2.6 - 3.0
+
+on:
+  push:
+    branches:
+      - 'main'
+      - '*-stable'
+      - '*-dev'
+    tags:
+      - '!*' # Do not execute on tags
+  pull_request:
+    branches:
+      - '*'
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
+
+# Cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  # The concurrency group contains the workflow name and the branch name.
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Specs - Ruby ${{ matrix.ruby }} ${{ matrix.name_extra || '' }}
+    if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
+    env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
+      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - ruby: "3.0"
+            appraisal: "ruby-3.0"
+            bundler: "2.4.22"
+            gemfile: vanilla
+          - ruby: "2.7"
+            appraisal: "ruby-2.7"
+            bundler: "2.4.22"
+            gemfile: vanilla
+          - ruby: "2.6"
+            appraisal: "ruby-2.6"
+            bundler: "2.4.22"
+            gemfile: vanilla
+
+    runs-on: ubuntu-24.04
+    continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby & RubyGems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          rubygems: ${{ matrix.rubygems }}
+          bundler: ${{ matrix.bundler }}
+          bundler-cache: false
+      # This will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. vanilla)
+      # We need to do this first to get appraisal installed.
+      # NOTE: This does not use the root Gemfile at all.
+      - name: Bundle for Appraisal ${{ matrix.appraisal }}
+        run: bundle _2.4.22_ install
+      - name: Install Appraisal ${{ matrix.appraisal }} dependencies
+        run: bundle _2.4.22_ exec appraisal ${{ matrix.appraisal }} bundle _2.4.22_ install
+      - name: Run tests ${{ matrix.appraisal }}
+        run: bundle _2.4.22_ exec appraisal ${{ matrix.appraisal }} bundle _2.4.22_ exec rake test
